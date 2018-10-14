@@ -1,6 +1,6 @@
 {% set name = "cymem" %}
-{% set version = "1.31.2" %}
-{% set sha256sum = "f06d9b50da0474d7405674d8101c319d89a17d33792d6d429fe3d5c64f0d9df1" %}
+{% set version = "2.0.2" %}
+{% set sha256sum = "ab88b1534f06df07262d9bc5efb3ba07948cdbe9a363eb9eaa4ad42fae6c7b5e" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 1000
+  number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
   skip: True  # [win32 or linux32]
 

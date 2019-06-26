@@ -1,6 +1,6 @@
 {% set name = "cymem" %}
-{% set version = "1.31.2" %}
-{% set sha256sum = "f06d9b50da0474d7405674d8101c319d89a17d33792d6d429fe3d5c64f0d9df1" %}
+{% set version = "2.0.2" %}
+{% set sha256sum = "ab88b1534f06df07262d9bc5efb3ba07948cdbe9a363eb9eaa4ad42fae6c7b5e" %}
 
 package:
   name: {{ name }}
@@ -10,10 +10,12 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
+  patches:
+    - patches/0001-remove-setup_requires.patch
 
 build:
-  number: 1000
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   skip: True  # [win32 or linux32]
 
 requirements:
@@ -21,8 +23,11 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
+    - cython
+    - pip
     - python
     - setuptools
+    - wheel
 
   run:
     - python
@@ -44,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - rmax
+    - h-vetinari

@@ -22,13 +22,12 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cython
-    - wheel
   host:
     - cython
     - pip
     - python
     - setuptools
+    - wheel
 
   run:
     - python
@@ -50,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - rmax
+    - h-vetinari

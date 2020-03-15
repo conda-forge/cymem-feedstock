@@ -14,8 +14,8 @@ source:
     - patches/0001-remove-setup_requires.patch
 
 build:
-  number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: 1
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   skip: True  # [win32 or linux32]
 
 requirements:

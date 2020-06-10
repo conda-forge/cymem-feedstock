@@ -14,7 +14,7 @@ source:
     - patches/0001-remove-setup_requires.patch
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   skip: True  # [win32 or linux32]
 
@@ -50,3 +50,6 @@ extra:
   recipe-maintainers:
     - rmax
     - h-vetinari
+    - ines
+    - honnibal
+    - adrianeboyd

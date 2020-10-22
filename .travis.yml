@@ -3,32 +3,34 @@
 
 language: generic
 
-env:
-  global:
-    # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
-    - secure: "He11oPJ7jpPOC63SbbFL5eu/zNbesU/chL9NSrmgr+iA4DXoGOPKqvF2+HG9zGMq+TW7OSLyTWGpxdVuDxATiZIzGCu0brUt1xa+RNOsEpkIBFB8zeI9wqRHxIdtjFvfpqJC/BEQK16pRYyapcb+5Iy8TCg2OqQ6pOxSVBleehUlhPfVMly9Pw7pDjnt5BIAL33ed/gD+nD0f7d9sF+R3pFfog6VSNk6DNs5I6iLZOFstntpeRm0x4zRqFgBoOxoIecBu1R6u081Ahkc6wKY50NwUH58tYhIIejlLD50shL7uNI/WwJW3XbgV48AGAMdQ129vEJLWfJrZsyM+Zky+xs8o+TDCmir11Na3B9C2qc5NskMkZIL6DpTM4IR81FC+XJw5CHzWUgaN50j84ddWn/2/7RxHR05PdaiCcs4lGTmndB5afkXE8dkElwIhg+AfaRr7BIHUs6bi4iPv0XP8qSOHD74UzhLxAP9MDC42vOI0Z9lDnCGSuz4uOGcUizXCjRrdl5XCNS0gTysO/JWKUUbEuUWtz09J3PJMQvMKEy1q7oZKhdd9vk9Ildd/qhCFXY9cUE/oLr5pZWZOGz9WdesF3u9CvIha/hKyjikaXgarlX6jiB3kWP+iZ1+3uEBUaW3czk7fdyqP9Qq5NbMbdE5K2ThlW7Is2tIE9Kr7Qg="
+
 
 matrix:
   include:
-    - env: CONFIG=linux_ppc64le_python3.6.____73_pypy UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+    - env: CONFIG=linux_ppc64le_c_compiler_version8cxx_compiler_version8python3.6.____73_pypy UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
       os: linux
       arch: ppc64le
 
-    - env: CONFIG=linux_ppc64le_python3.6.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+    - env: CONFIG=linux_ppc64le_c_compiler_version8cxx_compiler_version8python3.6.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
       os: linux
       arch: ppc64le
 
-    - env: CONFIG=linux_ppc64le_python3.7.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+    - env: CONFIG=linux_ppc64le_c_compiler_version8cxx_compiler_version8python3.7.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
       os: linux
       arch: ppc64le
 
-    - env: CONFIG=linux_ppc64le_python3.8.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+    - env: CONFIG=linux_ppc64le_c_compiler_version8cxx_compiler_version8python3.8.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
+      os: linux
+      arch: ppc64le
+
+    - env: CONFIG=linux_ppc64le_c_compiler_version8cxx_compiler_version8python3.9.____cpython UPLOAD_PACKAGES=True PLATFORM=linux-ppc64le DOCKER_IMAGE=condaforge/linux-anvil-ppc64le
       os: linux
       arch: ppc64le
 
 script:
   - export CI=travis
   - export GIT_BRANCH="$TRAVIS_BRANCH"
+  - export FEEDSTOCK_NAME=$(basename ${TRAVIS_REPO_SLUG})
 
 
   - if [[ ${PLATFORM} =~ .*linux.* ]]; then ./.scripts/run_docker_build.sh; fi

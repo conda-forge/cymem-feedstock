@@ -1,22 +1,24 @@
-{% set name = "cymem" %}
 {% set version = "2.0.3" %}
-{% set sha256sum = "5083b2ab5fe13ced094a82e0df465e2dbbd9b1c013288888035e24fd6eb4ed01" %}
+{% set sha256sum = "1b619103f658623fc81483f78092f29247a5456848dd742ae6a70b34b12347e4" %}
 
 package:
-  name: {{ name }}
+  name: cymem
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  # We don't use the PyPI release because it does not include the cythonize.py
+  # helper script to rebuild from the Cython source.
+  # url: https://pypi.io/packages/source/c/cymem/cymem-{{ version }}.tar.gz
+  url: https://github.com/explosion/cymem/archive/v{{ version }}.tar.gz
   sha256: {{ sha256sum }}
   patches:
     - patches/0001-remove-setup_requires.patch
+    - patches/0002-always-cythonize.patch
 
 build:
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
-  skip: True  # [win32 or linux32]
+  skip: True
 
 requirements:
   build:

@@ -1,5 +1,5 @@
-{% set version = "2.0.3" %}
-{% set sha256sum = "1b619103f658623fc81483f78092f29247a5456848dd742ae6a70b34b12347e4" %}
+{% set version = "2.0.4" %}
+{% set sha256sum = "2d862c83c8ade3b033b975be537ffd67281c41119c08a81e202bd9378fb50fd2" %}
 
 package:
   name: cymem
@@ -16,7 +16,7 @@ source:
     - patches/0002-always-cythonize.patch
 
 build:
-  number: 3
+  number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:

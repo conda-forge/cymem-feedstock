@@ -16,7 +16,7 @@ source:
     - patches/0002-always-cythonize.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -36,6 +36,10 @@ requirements:
 test:
   requires:
     - pytest
+  imports:
+    - cymem
+  commands:
+    - python -m pytest --tb=native --pyargs cymem
 
 about:
   home: https://github.com/explosion/cymem

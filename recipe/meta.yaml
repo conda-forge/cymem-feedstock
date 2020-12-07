@@ -1,19 +1,16 @@
 {% set version = "2.0.5" %}
-{% set sha256sum = "bf4c9adc15535c6250aee24d3465e088b344e1c3304a6641f20f07081c9f0ac5" %}
+{% set sha256sum = "190e15d9cf2c3bde60ae37bddbae6568a36044dc4a326d84081a5fa08818eee0" %}
 
 package:
   name: cymem
   version: {{ version }}
 
 source:
-  # We don't use the PyPI release because it does not include the cythonize.py
-  # helper script to rebuild from the Cython source.
-  # url: https://pypi.io/packages/source/c/cymem/cymem-{{ version }}.tar.gz
-  url: https://github.com/explosion/cymem/archive/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/c/cymem/cymem-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:

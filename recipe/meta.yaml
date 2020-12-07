@@ -1,5 +1,5 @@
-{% set version = "2.0.4" %}
-{% set sha256sum = "2d862c83c8ade3b033b975be537ffd67281c41119c08a81e202bd9378fb50fd2" %}
+{% set version = "2.0.5" %}
+{% set sha256sum = "bf4c9adc15535c6250aee24d3465e088b344e1c3304a6641f20f07081c9f0ac5" %}
 
 package:
   name: cymem
@@ -11,12 +11,9 @@ source:
   # url: https://pypi.io/packages/source/c/cymem/cymem-{{ version }}.tar.gz
   url: https://github.com/explosion/cymem/archive/v{{ version }}.tar.gz
   sha256: {{ sha256sum }}
-  patches:
-    - patches/0001-remove-setup_requires.patch
-    - patches/0002-always-cythonize.patch
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:

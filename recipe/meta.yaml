@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cymem/cymem-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/c/cymem/cymem-{{ version }}.tar.gz
   sha256: {{ sha256sum }}
 
 build:

@@ -370,7 +370,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@conda-forge/spacy](https://github.com/orgs/conda-forge/teams/spacy/)
 * [@h-vetinari](https://github.com/h-vetinari/)
 * [@rmax](https://github.com/rmax/)
-* [@conda-forge/spacy](https://github.com/orgs/conda-forge/teams/spacy/)
 

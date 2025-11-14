@@ -1,5 +1,5 @@
-{% set version = "2.0.11" %}
-{% set sha256sum = "efe49a349d4a518be6b6c6b255d4a80f740a341544bde1a807707c058b88d0bd" %}
+{% set version = "2.0.12" %}
+{% set sha256sum = "6d4f6f72875560b5ea692808b8a66ac4b3ee706995561a1bf6ac86a6f05ff2b0" %}
 
 package:
   name: cymem
@@ -10,7 +10,7 @@ source:
   sha256: {{ sha256sum }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:

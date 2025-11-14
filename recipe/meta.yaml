@@ -1,5 +1,5 @@
-{% set version = "2.0.12" %}
-{% set sha256sum = "6d4f6f72875560b5ea692808b8a66ac4b3ee706995561a1bf6ac86a6f05ff2b0" %}
+{% set version = "2.0.13" %}
+{% set sha256sum = "1c91a92ae8c7104275ac26bd4d29b08ccd3e7faff5893d3858cb6fadf1bc1588" %}
 
 package:
   name: cymem
